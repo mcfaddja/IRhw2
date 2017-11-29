@@ -52,7 +52,20 @@ print(r0)
 print("")
 
 # iterate rank vector
-testCond = False
+nCnt = 0 # number of itterations
+testCond = False # initialize test condition
 while testCond == False:
-	r1 = 
-		
+	r1 = beta*np.dot(Mmat,r0) + (1-beta)*np.ones((nDim,1))*(1/nDim)
+	#testCond = True
+	testCond = np.allclose(r0, r1)
+	if testCond == False:
+		r0 = r1
+	nCnt = nCnt + 1
+	
+	
+print("Final page rank vector")	
+print(r1)
+print("")
+
+print("number of itterations")
+print(nCnt)
